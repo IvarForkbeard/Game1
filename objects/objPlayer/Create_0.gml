@@ -1,48 +1,47 @@
 //player pulls blocks around randomly to set up playable surface
 now = 999
 for (i = 0; i <= now; i ++) {
-    global.dx = 0
-    global.dy = 0
+    dx = 0
+    dy = 0
     switch irandom(3) {
         case 0:
-            global.dy = -1
+            dy = -1
         break
         case 1:
-            global.dx = +1
+            dx = +1
         break
         case 2:
-            global.dy = +1
+            dy = +1
         break
         case 3:
-            global.dx = -1
+            dx = -1
         break
     }
-    destination = gridAt(global.playerX + global.dx, global.playerY + global.dy, i)
-    if destination == entity.floor || destination == entity.target {
-        global.playgrid[global.playerX][global.playerY][i] -= entity.player
-        global.playerX += global.dx
-        global.playerY += global.dy
-        global.playgrid[global.playerX][global.playerY][i] += entity.player
-        behind = global.playgrid[global.playerX - global.dx * 2][global.playerY - global.dy * 2][i]
-        if behind == entity.crate || behind == entity.crate + entity.target {
-            global.playgrid[global.playerX - global.dx * 2][global.playerY - global.dy * 2][i] -= entity.crate
-            global.playgrid[global.playerX - global.dx][global.playerY - global.dy][i] += entity.crate
+    var focus = gridAt(global.playerX + dx, global.playerY + dy, i)
+    if focus == entity.floor || focus == entity.target {
+        changeGrid(global.playerX, global.playerY, i, -entity.player)
+        global.playerX += dx
+        global.playerY += dy
+        changeGrid(global.playerX, global.playerY, i, entity.player)
+        var focus2 = global.playgrid[global.playerX - dx * 2][global.playerY - dy * 2][i]
+        if focus2 == entity.crate || focus2 == entity.crate + entity.target {
+            changeGrid(global.playerX - dx * 2, global.playerY - dy * 2, i, -entity.crate)
+            changeGrid(global.playerX - dx, global.playerY - dy, i, entity.crate)
         }
     }
     for (j = 0; j < 10; j ++) {
         for (k = 0; k < 10; k ++) {
-            global.playgrid[j][k][i + 1] = global.playgrid[j][k][i]
+            setGrid(j, k, i + 1, gridAt(j, k, i))
         }
     }
 }
 
 //check if the player is surrounded and if so, restart the room to ensure max scrambling.
-isPlayable = false
-if (global.playgrid[global.playerX + 1][global.playerY][i] != entity.floor 
-    && global.playgrid[global.playerX - 1][global.playerY][i] != entity.floor
-    && global.playgrid[global.playerX][global.playerY + 1][i] != entity.floor
-    && global.playgrid[global.playerX][global.playerY - 1][i] != entity.floor)
-    || puzzleComplete() {
+isPlayable = gridAt(global.playerX + 1, global.playerY, i)
+isPlayable *= gridAt(global.playerX - 1, global.playerY, i)
+isPlayable *= gridAt(global.playerX, global.playerY + 1, i)
+isPlayable *= gridAt(global.playerX, global.playerY - 1, i)
+isPlayable *= !puzzleComplete()
+if !isPlayable {
     room_restart()
 }
-global.hasPlayerMoved = false

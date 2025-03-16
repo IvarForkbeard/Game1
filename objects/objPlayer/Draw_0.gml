@@ -3,14 +3,12 @@ x = global.playerX * GRIDSIZE
 y = global.playerY * GRIDSIZE
 draw_self()
 
-//destroy all crates
+//destroy and recreate crates
 instance_destroy(objCrate)
-
-//instantiates the crates
 for (i = 0; i < 10; i ++) {
     for (j = 0; j < 10;  j ++) {
-        if gridAt(i, j, now) == entity.crate
-|| gridAt(i, j, now) = entity.crate + entity.target {
+        var focus = gridAt(i, j, now)
+        if focus == entity.crate || focus = entity.crate + entity.target {
             instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "Instances", objCrate)
         }
     }
@@ -25,7 +23,7 @@ draw_text(320, 580, "Stephen's Happy Fun Time Game Level: " + string(global.leve
 draw_text(320, 610, "Steps: " + string(now - 999))
 
 //draw the text of some variables
-//draw_text(320, 32, "Here's X, Y, dX, dY :" + string (global.playerX) + ", " + string (global.playerY) + ", " + string (global.dx) + ", " + string (global.dy))
+//draw_text(320, 32, "Here's X, Y, dX, dY :" + string (global.playerX) + ", " + string (global.playerY) + ", " + string (dx) + ", " + string (dy))
 
 //draw the playGrid array for debugging.  Comment or uncomment as required.
 /*
