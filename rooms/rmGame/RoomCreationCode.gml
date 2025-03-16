@@ -1,5 +1,4 @@
-global.numberOfBoxes = ceil(global.level / 3) + 1
-
+numberOfBoxes = ceil(global.level / 3) + 1
 enum entity {
     floor = 0,
     wall = 1,
@@ -11,16 +10,16 @@ enum entity {
 // create global.playgrid
 for (i = 0; i < 10; i ++) {
     for (j = 0; j < 10; j ++) {
-        global.playgrid[i][j][0] = entity.wall
+        setGrid(i, j, 0, entity.wall)
     }
 }
 
 // add generated path
-i = 1
+pathStep = 1
 pathX = irandom(7) + 1
 pathY = irandom(7) + 1
-global.playgrid[pathX][pathY][0] = entity.floor
-while i < global.level + 20 && i < 64 {
+setGrid(pathX, pathY, 0, entity.floor)
+while pathStep < global.level + 20 && pathStep < 64 {
     switch irandom(3){
         case 0:
             if pathY > 1 {
@@ -43,9 +42,9 @@ while i < global.level + 20 && i < 64 {
             }
         break
     }
-    if global.playgrid[pathX][pathY][0] == entity.wall {
-        global.playgrid[pathX][pathY][0] = entity.floor
-        i ++
+    if gridAt(pathX, pathY, 0) == entity.wall {
+        setGrid(pathX, pathY, 0, entity.floor)
+        pathStep ++
     }
 }
 
@@ -54,32 +53,32 @@ playerHasBeenPlaced = false
 while !playerHasBeenPlaced {
     global.playerX = irandom(7) + 1
     global.playerY = irandom(7) + 1
-    if global.playgrid[global.playerX][global.playerY][0] == entity.floor {
-        global.playgrid[global.playerX][global.playerY][0] = entity.player
+    if gridAt(global.playerX, global.playerY, 0) == entity.floor {
+        setGrid(global.playerX, global.playerY, 0, entity.player)
         playerHasBeenPlaced = true
     }
 }
 
 // add targets and crates to global.playgrid
-i = 0
-while i < global.numberOfBoxes {
+boxesPlaced = 0
+while boxesPlaced < numberOfBoxes {
     targetX = irandom(7) + 1
     targetY = irandom(7) + 1
-    if global.playgrid[targetX][targetY][0] == entity.floor {
-        global.playgrid[targetX][targetY][0] += entity.target + entity.crate
-        i ++
+    if gridAt(targetX, targetY, 0) == entity.floor {
+        changeGrid(targetX, targetY, 0, entity.target + entity.crate)
+        boxesPlaced ++
     }
 }
 
 //now put actual objects onto the play surface except crates, which are redrawn every clock cycle
 for (i = 0; i < 10; i ++) {
     for (j = 0; j < 10; j ++) {
-        switch global.playgrid[i][j][0] {
+        switch gridAt(i, j, 0) {
             case entity.wall:
-                instance_create_layer(i * 64, j * 64, "Instances", objWall)
+                instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "Instances", objWall)
             break
             case entity.target + entity.crate:
-                instance_create_layer(i * 64, j * 64, "Instances", objTarget)
+                instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "Instances", objTarget)
             break
         }
     }

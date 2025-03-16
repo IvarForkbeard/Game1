@@ -1,6 +1,6 @@
 // Position player
-x = global.playerX * global.gridSize
-y = global.playerY * global.gridSize
+x = global.playerX * GRIDSIZE
+y = global.playerY * GRIDSIZE
 draw_self()
 
 //destroy all crates
@@ -9,8 +9,9 @@ instance_destroy(objCrate)
 //instantiates the crates
 for (i = 0; i < 10; i ++) {
     for (j = 0; j < 10;  j ++) {
-        if gridAt(i, j, now) == entity.crate|| gridAt(i, j, now) = entity.crate + entity.target {
-            instance_create_layer(i * 64, j * 64, "Instances", objCrate)
+        if gridAt(i, j, now) == entity.crate
+|| gridAt(i, j, now) = entity.crate + entity.target {
+            instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "Instances", objCrate)
         }
     }
 }
