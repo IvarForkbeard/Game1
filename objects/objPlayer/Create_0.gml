@@ -17,13 +17,13 @@ for (i = 0; i <= now; i ++) {
             dx = -1
         break
     }
-    var focus = gridAt(global.playerX + dx, global.playerY + dy, i)
+    focus = gridAt(global.playerX + dx, global.playerY + dy, i)
     if focus == entity.floor || focus == entity.target {
         changeGrid(global.playerX, global.playerY, i, -entity.player)
         global.playerX += dx
         global.playerY += dy
         changeGrid(global.playerX, global.playerY, i, entity.player)
-        var focus2 = global.playgrid[global.playerX - dx * 2][global.playerY - dy * 2][i]
+        focus2 = global.playgrid[global.playerX - dx * 2][global.playerY - dy * 2][i]
         if focus2 == entity.crate || focus2 == entity.crate + entity.target {
             changeGrid(global.playerX - dx * 2, global.playerY - dy * 2, i, -entity.crate)
             changeGrid(global.playerX - dx, global.playerY - dy, i, entity.crate)

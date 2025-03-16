@@ -47,7 +47,7 @@ switch keyboard_key{
     break
 }
 
-//move the player as long as it hasn't stepped onto the skirt
+//move the player
 changeGrid(global.playerX, global.playerY, now, -entity.player)
 global.playerX += dx
 global.playerY += dy
@@ -61,31 +61,26 @@ if focus == entity.player + entity.crate || focus == entity.player + entity.crat
 }
 
 //check for illegal board situations
-var isPlayable = true
 for (i = 0; i < 10; i ++) {
     for(j = 0; j < 10; j ++) {
-        switch global.playgrid[i][j][now] {
+        switch gridAt(i, j, now) {
             case 8: //player on wall
             case 16: //crate on wall
             case 30: //crate on crate
             case 33: //crate on crate on target
-                isPlayable = false
+                //rewind time and reposition player
+                now --
+                for (i = 0; i < 10; i ++) {
+                    for (j = 0; j < 10; j ++) {
+                        focus = gridAt(i, j, now)
+                        if  focus == entity.player || focus == entity.player + entity.target {
+                            global.playerX = i
+                            global.playerY = j
+                        }
+                    }
+                }
             break
         } 
-    }
-}
-
-//rewind time if not playable
-if !(isPlayable) {
-    now --
-    for (i = 0; i < 10; i ++) {
-        for (j = 0; j < 10; j ++) {
-            focus = gridAt(i, j, now)
-            if  focus == entity.player || focus == entity.player + entity.target {
-                global.playerX = i
-                global.playerY = j
-            }
-        }
     }
 }
 
