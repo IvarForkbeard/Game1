@@ -36,12 +36,7 @@ for (i = 0; i <= now; i ++) {
     }
 }
 
-//check if the player is surrounded and if so, restart the room to ensure max scrambling.
-isPlayable = gridAt(global.playerX + 1, global.playerY, i)
-isPlayable *= gridAt(global.playerX - 1, global.playerY, i)
-isPlayable *= gridAt(global.playerX, global.playerY + 1, i)
-isPlayable *= gridAt(global.playerX, global.playerY - 1, i)
-isPlayable *= !puzzleComplete()
-if !isPlayable {
+//if the room is solved already, restart
+if puzzleComplete() {
     room_restart()
 }

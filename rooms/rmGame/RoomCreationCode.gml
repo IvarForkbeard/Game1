@@ -1,11 +1,5 @@
+//setup stuff for every time the room is remade
 numberOfBoxes = ceil(global.level / 3) + 1
-enum entity {
-    floor = 0,
-    wall = 1,
-    target = 3,
-    player = 7,
-    crate = 15
-}
 
 // create global.playgrid
 for (i = 0; i < 10; i ++) {

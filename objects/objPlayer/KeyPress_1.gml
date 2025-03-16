@@ -32,8 +32,8 @@ switch keyboard_key{
         global.hasPlayerMoved = true
     break
     case vk_space:
-        if (now > 2){
-            now --
+        if now {
+          now --
         }
         for (i = 0; i < 10; i ++) {
             for (j = 0; j < 10; j ++) {
@@ -64,10 +64,10 @@ if focus == entity.player + entity.crate || focus == entity.player + entity.crat
 for (i = 0; i < 10; i ++) {
     for(j = 0; j < 10; j ++) {
         switch gridAt(i, j, now) {
-            case 8: //player on wall
-            case 16: //crate on wall
-            case 30: //crate on crate
-            case 33: //crate on crate on target
+            case entity.wall + entity.player: //player on wall
+            case entity.wall + entity.crate: //crate on wall
+            case entity.crate + entity.crate: //crate on crate
+            case entity.crate + entity.crate + entity.target: //crate on crate on target
                 //rewind time and reposition player
                 now --
                 for (i = 0; i < 10; i ++) {
