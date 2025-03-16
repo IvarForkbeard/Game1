@@ -35,6 +35,7 @@ for (i = 0; i <= now; i ++) {
         }
     }
 }
+
 //check if the player is surrounded and if so, restart the room to ensure max scrambling.
 isPlayable = false
 if (global.playgrid[global.playerX + 1][global.playerY][i] != entity.floor 
