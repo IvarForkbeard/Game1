@@ -11,25 +11,21 @@ switch keyboard_key{
         dx = -1
         dy = 0
         now ++
-        global.hasPlayerMoved = true
     break
     case vk_up:
         dx = 0
         dy = -1
         now ++
-        global.hasPlayerMoved = true
     break
     case vk_right:
         dx = 1
         dy = 0
         now ++
-        global.hasPlayerMoved = true
     break
     case vk_down:
         dx = 0
         dy = 1
         now ++
-        global.hasPlayerMoved = true
     break
     case vk_space:
         if now {
