@@ -7,7 +7,7 @@ draw_self()
 instance_destroy(objCrate)
 for (i = 0; i < 10; i ++) {
     for (j = 0; j < 10;  j ++) {
-        var focus = gridAt(i, j, now)
+        focus = gridAt(i, j, now)
         if focus == entity.crate || focus = entity.crate + entity.target {
             instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "Instances", objCrate)
         }

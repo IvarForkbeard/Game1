@@ -33,7 +33,7 @@ switch keyboard_key{
         }
         for (i = 0; i < 10; i ++) {
             for (j = 0; j < 10; j ++) {
-                var focus = gridAt(i, j, now)
+                focus = gridAt(i, j, now)
                 if focus == entity.player || focus == entity.player + entity.target{
                     global.playerX = i
                     global.playerY = j
@@ -50,7 +50,7 @@ global.playerY += dy
 gridChange(global.playerX, global.playerY, now, entity.player)
 
 //if the player is on a crate, then push that crate ahead
-var focus = gridAt(global.playerX, global.playerY, now)
+focus = gridAt(global.playerX, global.playerY, now)
 if focus == entity.player + entity.crate || focus == entity.player + entity.crate + entity.target{
     gridChange(global.playerX, global.playerY, now, -entity.crate)
     gridChange(global.playerX + dx, global.playerY + dy, now, entity.crate)
