@@ -23,7 +23,7 @@ for (i = 0; i <= now; i ++) {
         global.playerX += dx
         global.playerY += dy
         gridChange(global.playerX, global.playerY, i, entity.player)
-        focus2 = global.playgrid[global.playerX - dx * 2][global.playerY - dy * 2][i]
+        focus2 = gridAt(global.playerX - dx * 2, global.playerY - dy * 2, i)
         if focus2 == entity.crate || focus2 == entity.crate + entity.target {
             gridChange(global.playerX - dx * 2, global.playerY - dy * 2, i, -entity.crate)
             gridChange(global.playerX - dx, global.playerY - dy, i, entity.crate)

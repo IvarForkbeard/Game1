@@ -1,6 +1,11 @@
 //setup stuff for every time the room is remade
 numberOfBoxes = ceil(global.level / 3) + 1
 
+//audio start has to go here because if HTML5 no sound plays without player interaction first
+if !audio_is_playing(theme){
+    audio_play_sound(theme, 5, true)
+}
+
 // create global.playgrid
 for (i = 0; i < 10; i ++) {
     for (j = 0; j < 10; j ++) { 
