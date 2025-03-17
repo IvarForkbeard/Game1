@@ -1,7 +1,7 @@
 //on input, increment the number of steps and store the new grid at that position in the 3d array
 for (j = 0; j < 10; j ++) {
     for (k = 0; k < 10; k ++) {
-        setGrid(j, k, now + 1, gridAt(j, k, now))
+        gridSet(j, k, now + 1, gridAt(j, k, now))
     }
 }
 dx = 0
@@ -48,16 +48,16 @@ switch keyboard_key{
 }
 
 //move the player
-changeGrid(global.playerX, global.playerY, now, -entity.player)
+gridChange(global.playerX, global.playerY, now, -entity.player)
 global.playerX += dx
 global.playerY += dy
-changeGrid(global.playerX, global.playerY, now, entity.player)
+gridChange(global.playerX, global.playerY, now, entity.player)
 
 //if the player is on a crate, then push that crate ahead
 var focus = gridAt(global.playerX, global.playerY, now)
 if focus == entity.player + entity.crate || focus == entity.player + entity.crate + entity.target{
-    changeGrid(global.playerX, global.playerY, now, -entity.crate)
-    changeGrid(global.playerX + dx, global.playerY + dy, now, entity.crate)
+    gridChange(global.playerX, global.playerY, now, -entity.crate)
+    gridChange(global.playerX + dx, global.playerY + dy, now, entity.crate)
 }
 
 //check for illegal board situations

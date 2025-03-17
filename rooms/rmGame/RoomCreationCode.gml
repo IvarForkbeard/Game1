@@ -3,8 +3,8 @@ numberOfBoxes = ceil(global.level / 3) + 1
 
 // create global.playgrid
 for (i = 0; i < 10; i ++) {
-    for (j = 0; j < 10; j ++) {
-        setGrid(i, j, 0, entity.wall)
+    for (j = 0; j < 10; j ++) { 
+        gridSet(i, j, 0, entity.wall)
     }
 }
 
@@ -12,7 +12,7 @@ for (i = 0; i < 10; i ++) {
 pathStep = 1
 pathX = irandom(7) + 1
 pathY = irandom(7) + 1
-setGrid(pathX, pathY, 0, entity.floor)
+gridSet(pathX, pathY, 0, entity.floor)
 while pathStep < global.level + 20 && pathStep < 64 {
     switch irandom(3){
         case 0:
@@ -37,7 +37,7 @@ while pathStep < global.level + 20 && pathStep < 64 {
         break
     }
     if gridAt(pathX, pathY, 0) == entity.wall {
-        setGrid(pathX, pathY, 0, entity.floor)
+        gridSet(pathX, pathY, 0, entity.floor)
         pathStep ++
     }
 }
@@ -48,7 +48,7 @@ while !playerHasBeenPlaced {
     global.playerX = irandom(7) + 1
     global.playerY = irandom(7) + 1
     if gridAt(global.playerX, global.playerY, 0) == entity.floor {
-        setGrid(global.playerX, global.playerY, 0, entity.player)
+        gridSet(global.playerX, global.playerY, 0, entity.player)
         playerHasBeenPlaced = true
     }
 }
@@ -59,7 +59,7 @@ while boxesPlaced < numberOfBoxes {
     targetX = irandom(7) + 1
     targetY = irandom(7) + 1
     if gridAt(targetX, targetY, 0) == entity.floor {
-        changeGrid(targetX, targetY, 0, entity.target + entity.crate)
+        gridChange(targetX, targetY, 0, entity.target + entity.crate)
         boxesPlaced ++
     }
 }

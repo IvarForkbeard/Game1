@@ -19,19 +19,19 @@ for (i = 0; i <= now; i ++) {
     }
     focus = gridAt(global.playerX + dx, global.playerY + dy, i)
     if focus == entity.floor || focus == entity.target {
-        changeGrid(global.playerX, global.playerY, i, -entity.player)
+        gridChange(global.playerX, global.playerY, i, -entity.player)
         global.playerX += dx
         global.playerY += dy
-        changeGrid(global.playerX, global.playerY, i, entity.player)
+        gridChange(global.playerX, global.playerY, i, entity.player)
         focus2 = global.playgrid[global.playerX - dx * 2][global.playerY - dy * 2][i]
         if focus2 == entity.crate || focus2 == entity.crate + entity.target {
-            changeGrid(global.playerX - dx * 2, global.playerY - dy * 2, i, -entity.crate)
-            changeGrid(global.playerX - dx, global.playerY - dy, i, entity.crate)
+            gridChange(global.playerX - dx * 2, global.playerY - dy * 2, i, -entity.crate)
+            gridChange(global.playerX - dx, global.playerY - dy, i, entity.crate)
         }
     }
     for (j = 0; j < 10; j ++) {
         for (k = 0; k < 10; k ++) {
-            setGrid(j, k, i + 1, gridAt(j, k, i))
+            gridSet(j, k, i + 1, gridAt(j, k, i))
         }
     }
 }
