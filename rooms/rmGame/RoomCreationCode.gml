@@ -1,4 +1,4 @@
-//setup stuff for every time the room is remade
+//number of boxes should slowly increase as the level increases
 numberOfBoxes = ceil(global.level / 3) + 1
 
 //audio start has to go here because if HTML5 no sound plays without player interaction first
