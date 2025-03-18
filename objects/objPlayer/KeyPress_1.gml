@@ -1,3 +1,8 @@
+//audio start here because if HTML5 no sound plays without player interaction first
+if !audio_is_playing(theme){
+    audio_play_sound(theme, 5, true)
+}
+    
 //on input, increment the number of steps and store the new grid at that position in the 3d array
 for (j = 0; j < 10; j ++) {
     for (k = 0; k < 10; k ++) {
