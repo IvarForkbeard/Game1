@@ -47,3 +47,8 @@ function gridDraw () {
         }
     }
 }
+
+//seed the random thing
+function seedChoice(x){
+    random_set_seed(x)
+}

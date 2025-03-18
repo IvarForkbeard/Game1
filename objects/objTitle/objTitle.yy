@@ -1,11 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"objDumpster",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"objTitle",
+  "eventList":[],
   "managed":true,
-  "name":"objDumpster",
+  "name":"objTitle",
   "overriddenProperties":[],
   "parent":{
     "name":"Seeds",
@@ -30,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprDumpster",
-    "path":"sprites/sprDumpster/sprDumpster.yy",
+    "name":"sprTitle",
+    "path":"sprites/sprTitle/sprTitle.yy",
   },
   "spriteMaskId":null,
   "visible":true,
