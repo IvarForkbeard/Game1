@@ -21,3 +21,9 @@ draw_set_halign(fa_center)
 draw_set_colour(c_yellow)
 draw_text(320, 580, "Treeman's Happy Fun Time Game Level: " + string(global.level))
 draw_text(320, 610, "Steps: " + string(now - 999))
+draw_text(320, 30, "Elapsed Time: " + string(global.elapsedTime))
+
+//advance timer if still playing
+if global.level < global.levelToWin {
+    global.elapsedTime ++
+}

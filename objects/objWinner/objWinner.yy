@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"objTitle",
+  "%Name":"objWinner",
   "eventList":[],
   "managed":true,
-  "name":"objTitle",
+  "name":"objWinner",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprTitle",
-    "path":"sprites/sprTitle/sprTitle.yy",
+    "name":"sprWinner",
+    "path":"sprites/sprWinner/sprWinner.yy",
   },
   "spriteMaskId":null,
   "visible":true,
