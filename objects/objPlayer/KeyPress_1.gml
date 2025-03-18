@@ -89,5 +89,5 @@ for (i = 0; i < 10; i ++) {
 if puzzleComplete() {
     global.level ++
     audio_play_sound(golfClap6, 4, false)
-    room_restart()
+    alarm_set(0, 10)
 }
