@@ -69,14 +69,14 @@ for (i = 0; i < 10; i ++) {
     for (j = 0; j < 10; j ++) {
         switch gridAt(i, j, 0) {
             case entity.wall:
-                instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "targetsWalls", objWall)
+                instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "Instances", objWall)
             break
             case entity.target + entity.crate:
-                instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "targetsWalls", objTarget)
+                instance_create_layer(i * GRIDSIZE, j * GRIDSIZE, "Instances", objTarget)
             break
         }
     }
 }
 
 //instantiate player after the room has been built to prevent room scrambling prematurely
-instance_create_layer(global.playerX, global.playerY, "cratesPlayer", objPlayer)
+instance_create_layer(global.playerX, global.playerY, "Text", objPlayer)
