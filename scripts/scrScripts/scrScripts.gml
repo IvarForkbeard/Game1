@@ -49,6 +49,74 @@ function gridDraw () {
 }
 
 //seed the random thing
-function seedChoice(x){
+function seedChoice(x) {
     random_set_seed(x)
 }
+
+//fast rewind
+function fastRewind(){
+    if now {
+        now --
+    }
+    for (i = 0; i < 10; i ++) {
+        for(j = 0; j < 10; j ++) {
+            focus = gridAt(i, j, now)
+            if focus == entity.player || focus == entity.player + entity.target {
+                global.playerX = i
+                global.playerY = j
+            }
+        }
+    }
+}
+
+//undo
+function undo(){
+    if now {
+    now --
+    }
+    for (i = 0; i < 10; i ++) {
+        for (j = 0; j < 10; j ++) {
+            focus = gridAt(i, j, now)
+            if focus == entity.player || focus == entity.player + entity.target{
+                global.playerX = i
+                global.playerY = j
+            }
+        }
+    }
+}
+
+//left
+function left(){
+    dx = -1
+    dy = 0
+    now ++
+}
+
+//right
+function right(){
+    dx = 1
+    dy = 0
+    now ++
+}
+
+//up
+function up(){
+    dx = 0
+    dy = -1
+    now ++
+}
+
+//down
+function down(){
+    dx = 0
+    dy = 1
+    now ++
+}
+
+
+
+
+//comments at the end here to give whitespace in the IDE
+//
+//
+//not sure why this is, but delete these if you want to be VERY annoyed

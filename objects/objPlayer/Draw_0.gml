@@ -22,6 +22,9 @@ draw_set_colour(c_yellow)
 draw_text(320, 580, "Treeman's Happy Fun Time Game Levels Remaining: " + string(global.levelToWin - global.level))
 draw_text(320, 610, "Steps: " + string(now - 999))
 var minutes = string(int64(global.elapsedTime / 1800))
+if string_length(minutes) < 2 {
+    minutes = "0" + minutes
+}
 var seconds = string(int64(global.elapsedTime / 30) % 60)
 if string_length(seconds) < 2 {
     seconds = "0" + seconds

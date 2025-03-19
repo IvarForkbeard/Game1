@@ -8,38 +8,19 @@ dx = 0
 dy = 0
 switch keyboard_key{
     case vk_left:
-        dx = -1
-        dy = 0
-        now ++
+        left()
     break
     case vk_up:
-        dx = 0
-        dy = -1
-        now ++
+        up()
     break
     case vk_right:
-        dx = 1
-        dy = 0
-        now ++
+        right()
     break
     case vk_down:
-        dx = 0
-        dy = 1
-        now ++
+        down()
     break
     case vk_space:
-        if now {
-          now --
-        }
-        for (i = 0; i < 10; i ++) {
-            for (j = 0; j < 10; j ++) {
-                focus = gridAt(i, j, now)
-                if focus == entity.player || focus == entity.player + entity.target{
-                    global.playerX = i
-                    global.playerY = j
-                }
-            }
-        }
+        undo()
     break
 }
 
