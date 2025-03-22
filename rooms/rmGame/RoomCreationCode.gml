@@ -1,9 +1,5 @@
-if !audio_is_playing(theme){
-    audio_play_sound(theme, 5, true)
-}
-
-//number of boxes should slowly increase as the level increases
-numberOfBoxes = ceil(global.level / 3) + 1
+//number of crates should slowly increase as the level increases
+numberOfCrates = ceil(global.level / 3) + 1
 
 // create global.playgrid
 for (i = 0; i < 10; i ++) {
@@ -58,13 +54,13 @@ while !playerHasBeenPlaced {
 }
 
 // add targets and crates to global.playgrid
-boxesPlaced = 0
-while boxesPlaced < numberOfBoxes {
+cratesPlaced = 0
+while cratesPlaced < numberOfCrates {
     targetX = irandom(7) + 1
     targetY = irandom(7) + 1
     if gridAt(targetX, targetY, 0) == entity.floor {
         gridChange(targetX, targetY, 0, entity.target + entity.crate)
-        boxesPlaced ++
+        cratesPlaced ++
     }
 }
 
