@@ -1,2 +1,5 @@
-global.seed = 7
-event_inherited()
+/// @description
+
+seedChoice(7)
+object_set_sprite(objCrate, sprSkull)
+room_goto_next()

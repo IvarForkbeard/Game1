@@ -1,3 +1,7 @@
+if !audio_is_playing(theme){
+    audio_play_sound(theme, 5, true)
+}
+
 //number of boxes should slowly increase as the level increases
 numberOfBoxes = ceil(global.level / 3) + 1
 

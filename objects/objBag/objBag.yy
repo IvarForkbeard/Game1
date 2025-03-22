@@ -11,10 +11,7 @@
     "name":"Seeds",
     "path":"folders/Objects/Seeds.yy",
   },
-  "parentObjectId":{
-    "name":"objCrate",
-    "path":"objects/objCrate/objCrate.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
