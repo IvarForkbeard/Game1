@@ -1,4 +1,9 @@
 //constants
+global.level = 0
+global.playgrid[0][0][0] = entity.wall
+window_set_size(640, 640)
+global.elapsedTime = 0
+global.levelToWin = 32
 #macro GRIDSIZE 64
 enum entity {
     floor = 0,

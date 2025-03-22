@@ -25,9 +25,6 @@ var minutes = string(int64(global.elapsedTime / 1800))
 if string_length(minutes) < 2 {
     minutes = "0" + minutes
 }
-if string_length(minutes) < 1 {
-    minutes = "0" + minutes
-}
 var seconds = string(int64(global.elapsedTime / 30) % 60)
 if string_length(seconds) < 2 {
     seconds = "0" + seconds
