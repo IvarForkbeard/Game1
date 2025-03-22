@@ -1,3 +1,6 @@
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
 //constants
 global.level = 0
 global.playgrid[0][0][0] = entity.wall
@@ -54,8 +57,3 @@ function gridDraw () {
 function seedChoice(x){
     random_set_seed(x)
 }
-//
-//
-//
-//
-//

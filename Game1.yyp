@@ -1,6 +1,6 @@
 {
   "$GMProject":"",
-  "%Name":"treemanshappyfuntimegame",
+  "%Name":"Game1",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
@@ -34,7 +34,7 @@
   "MetaData":{
     "IDEVersion":"2024.11.0.179",
   },
-  "name":"treemanshappyfuntimegame",
+  "name":"Game1",
   "resources":[
     {"id":{"name":"bebasNeue","path":"fonts/bebasNeue/bebasNeue.yy",},},
     {"id":{"name":"objBag","path":"objects/objBag/objBag.yy",},},
